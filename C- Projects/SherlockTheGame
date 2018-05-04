@@ -1,0 +1,88 @@
+/*
+    @ @ @ @@@@@ @@@@@   @   @@@@@ @   @
+	  @ @ @ @     @   @  @ @  @   @ @ @@
+	  @ @ @ @@@@@ @@@@@ @   @ @   @ @@
+	  @ @ @ @     @     @   @ @   @ @ @
+	  @ @ @ @     @     @   @ @   @ @  @
+	  @@@@@ @@@@@ @     @   @ @@@@@ @   @
+
+	$$$$$ $   $ $$$$$       $$$$$ $$$$$ $   $ $$$$$
+	  $   $   $ $           $     $   $ $$ $$ $
+	  $   $$$$$ $$$$$       $     $   $ $ $ $ $$$$$
+	  $   $   $ $           $  $$ $$$$$ $   $ $
+	  $   $   $ $           $   $ $   $ $   $ $
+	  $   $   $ $$$$$       $$$$$ $   $ $   $ $$$$$
+
+	  $   $   $$$$        $$$$$       $$$$  $$$$$ $$$$$ $$$$$
+	  $   $  $   $        $   $       $   $ $       $   $   $
+	  $   $     $         $   $       $$$$  $$$$$   $   $   $
+	  $   $    $          $   $       $   $ $       $   $$$$$
+	   $ $    $     $$    $   $       $   $ $       $   $   $
+	    $    $$$$$  $$    $$$$$       $$$$  $$$$$   $   $   $
+
+*/
+
+
+#include "stdafx.h"  // Библиотеки для:
+#include <iostream>  // ввода и вывода текста,
+#include "windows.h" // создания рандомных чисел,
+#include <time.h>    // задержки на время
+
+using namespace std; // ввод и вывод
+
+int randNumber, lastNumber, stars, action; // переменные (загаданное число, введенное число, кол-во попыток, пустая переменная(чтобы программа не выключалась)
+
+
+// функция для создания рандомных чисел (сам не до конца в ней разобрался)
+int random(int min, int max)
+{
+	static bool flag;
+	if (!flag)
+	{
+		srand(time(NULL));
+		flag = true;
+	}
+	return min + rand() % (max - min);
+}
+
+// код программы
+int main()
+{
+	// приветствие
+	cout << "Hello! It's Sherlock theGame Limited Edition!" << endl;
+	cout << "Generate documents ..." << endl;
+	Sleep(1000); // задержка на секунду
+	cout << "Tell for Watson ..." << endl;
+	Sleep(1000); // задержка на секунду
+	cout << "Go!" << endl;
+
+	// создание рандомного числа от 0 до 100
+	randNumber = random(0, 100);
+
+	// цикл, работающий до тех пор, пока игрок не угадает число
+	while (lastNumber != randNumber)
+	{
+		stars += 1; // прибавление количества попыток
+		cout << "\n Watson, write a number! " << endl; // Просьба написать число
+		cin >> lastNumber; // сам ввод числа ( Readln() из паскаля)
+		
+		if (lastNumber == 101) { 
+			cout << "Watson, it's a " << randNumber << endl; // если игрок введет число 101, то ему будет дана подсказка
+		}
+		else if (lastNumber > randNumber) {
+			cout << "Watson, no! No, no, no, no! Noooooo!" << endl; // игрк ввел слишком большое число
+		}
+		else if (lastNumber < randNumber) {
+			cout << "Oh, man.. Maybe, U will write bigger number?" << endl; // ... слишком маленькое число
+		}
+		
+		else {
+			break; // если числа совпадают, выходим из цикла
+		}
+	}
+
+	cout << "OMG! You made this work for " << stars << " times!"; // барабанная дробь, поздравления и вывод количества попыток угадать нужное число
+	cin >> action; // просто ввод, чтобы программа не закрылась
+
+	return 0; // говорим компьютеру, что программа выполнена без ошибок и ее можно закрывать
+}
