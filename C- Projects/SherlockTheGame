@@ -86,3 +86,5 @@ int main()
 
 	return 0; // говорим компьютеру, что программа выполнена без ошибок и ее можно закрывать
 }
+
+// файл с игрой можно найти по ссылке https://drive.google.com/drive/folders/1bOX6E1QUFcucjKDPjKzGBCHHs1EDtAO-?usp=sharing
