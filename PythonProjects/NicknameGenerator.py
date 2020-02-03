@@ -38,11 +38,11 @@ space = " "
 alp = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, space]
 
 while True:
-    wordOut = ""  # строка для генерации ника
-    selectLetter = ""  # выбранный вариант буквы
+    wordOut = ""  
+    selectLetter = ""
 
-    wordIn = str(input("Введите слово: \n>>> ")).lower()
-    letterIndex = 0;  # положение буквы в массиве
+    wordIn = str(input("Write your nickname: \n>>> ")).lower()
+    letterIndex = 0;
 
     for letterCount in range(len(wordIn)):
         letterIndex = alphabetEng.index(wordIn[letterCount])
