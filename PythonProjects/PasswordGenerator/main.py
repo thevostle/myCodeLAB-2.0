@@ -27,7 +27,7 @@ if __name__ == '__main__':
 
     root = Tk()
     root.title("Генератор паролей")
-    root.geometry("250x150+300+300")
+    root.geometry("250x250+300+300")
 
     label_1 = Label(text="Длина пароля")
     label_1.grid(row=0, column=0, sticky=W)
