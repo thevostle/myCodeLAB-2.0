@@ -1,5 +1,4 @@
 from tkinter import *
-import tkinter.messagebox as mb
 import string
 from random import sample, choice
 
@@ -34,11 +33,9 @@ if __name__ == '__main__':
 
     def onScale(val):
         settings['Length'] = int(val)
-    
 
     scale = Scale(from_=6, to=30, command=onScale, orient="horizontal")
     scale.grid(row=0, column=1, sticky=W)
-    
 
     useNumbers = IntVar()
     cbtn_1 = Checkbutton(text="useNumbers", variable=useNumbers, onvalue=1, offvalue=0, padx=15, pady=3)
@@ -54,9 +51,9 @@ if __name__ == '__main__':
 
     def RefreshSettings():
         settings['Length'] = scale.get()
-        settings['UseNumbers?'] = 1 if useNumbers.get() else 0
-        settings['UseUppercase?'] = 1 if useUppercase.get() else 0
-        settings['UseSpecial?'] = 1 if useSpecial.get() else 0
+        settings['UseNumbers?'] = useNumbers.get()
+        settings['UseUppercase?'] = useUppercase.get()
+        settings['UseSpecial?'] = useSpecial.get()
 
     def get(event):
         result = StringVar()
